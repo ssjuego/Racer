@@ -39,12 +39,6 @@ public class CoinCount : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Vector3 velocity = rb.velocity;
-        //int speed = (int)Mathf.Sqrt(Mathf.Pow(velocity.x,2f) + Mathf.Pow(velocity.x, 2f));
-        //SpeedText.text = $"Speed: {speed}M/s";
-
-        
-
         // Calculate the elapsed time since the last update
         float deltaTime = Time.time - lastUpdateTime;
 
@@ -58,8 +52,7 @@ public class CoinCount : MonoBehaviour
         lastPosition = transform.position;
         lastUpdateTime = Time.time;
 
-        //speed = Mathf.Sqrt(Mathf.Pow(velocity.x, 2f) + Mathf.Pow(velocity.x, 2f));
-
+        // Velocity printing
         speed = velocity.magnitude;
         SpeedText.text = $"Speed: {(int)speed}M/s";
     }

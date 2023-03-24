@@ -7,7 +7,7 @@ public class RoadObjectPool : MonoBehaviour
     public static RoadObjectPool SharedInstance;
     public List<GameObject> pooledObjects;
     public List<GameObject> objectToPool;
-    public int amountToPool;
+    public int amountToPool;                      // amount to pool of each variant
 
 
     void Awake()
@@ -20,13 +20,13 @@ public class RoadObjectPool : MonoBehaviour
     void Start()
     {
         pooledObjects = new List<GameObject>();
-        for (int i = 0; i < amountToPool; i++)
+        for (int i = 0; i < amountToPool; i++)  
         {
-            for (int j = 0; j < objectToPool.Count; j++)
+            for (int j = 0; j < objectToPool.Count; j++) 
             {
-                GameObject obj = (GameObject)Instantiate(objectToPool[j]);
-                obj.SetActive(false);
-                pooledObjects.Add(obj);
+                GameObject obj = (GameObject)Instantiate(objectToPool[j]); // Create gameobject
+                obj.SetActive(false);    // deactivate gameobject
+                pooledObjects.Add(obj);  //add to pool.
             }
         }
 

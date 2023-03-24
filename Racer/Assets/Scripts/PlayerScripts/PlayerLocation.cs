@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerLocation : MonoBehaviour
 {
+    //Updates player position in z axis for object deactivateing.
     public static PlayerLocation globalInstance;
     public static float Z_Position;
     
