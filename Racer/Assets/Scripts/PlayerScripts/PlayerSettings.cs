@@ -11,12 +11,20 @@ public class PlayerSettings : MonoBehaviour
     private float brake;
     private float speed;
 
-    private void Start()   // storing default value
+    private void Start()   // storing Prefered value
     {
-        brake = car.breakForce;
-        speed = car.straightSpeed;
-      
+        brake = PlayerPrefs.GetInt("Brake");
+        speed = PlayerPrefs.GetInt("Speed");
+        RefreshValue();
+
     }
+
+    public void SetDefault()
+    {
+        PlayerPrefs.SetInt("Speed", int.Parse(Data[0].text));
+        PlayerPrefs.SetInt("Brake", int.Parse(Data[1].text));
+    }
+
 
     public void RefreshValue()  // setting value to default
     {
@@ -42,4 +50,5 @@ public class PlayerSettings : MonoBehaviour
         Data[0].text = car.straightSpeed.ToString();
         Data[1].text = car.breakForce.ToString();
     }
+
 }
