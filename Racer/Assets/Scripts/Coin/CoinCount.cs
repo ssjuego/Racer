@@ -8,13 +8,26 @@ using UnityEngine.SceneManagement;
 public class CoinCount : MonoBehaviour
 {
     public int coinCounter;
+    public float speed;
     public TMP_Text coinText;
+    [Space]
+    public TMP_Text SpeedText;
+   
+    
+
+    private Vector3 lastPosition;
+    private float lastUpdateTime;
 
     // Start is called before the first frame update
     void Start()
     {
         coinCounter = 0;
         coinText.text = "Coins: " + coinCounter;
+        speed = 0;
+        SpeedText.text = $"Speed: {speed}M/s";
+        lastPosition = transform.position;
+        lastUpdateTime = Time.time;
+
     }
 
     void OnDestroy()
@@ -24,8 +37,36 @@ public class CoinCount : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    private void FixedUpdate()
+    {
+        //Vector3 velocity = rb.velocity;
+        //int speed = (int)Mathf.Sqrt(Mathf.Pow(velocity.x,2f) + Mathf.Pow(velocity.x, 2f));
+        //SpeedText.text = $"Speed: {speed}M/s";
 
-    // Triggered when the ball comes in contact with obstacles or coins.
+        
+
+        // Calculate the elapsed time since the last update
+        float deltaTime = Time.time - lastUpdateTime;
+
+        // Calculate the distance traveled since the last update
+        Vector3 displacement = transform.position - lastPosition;
+
+        // Calculate the velocity in meters per second
+        Vector3 velocity = new Vector3((displacement.x / deltaTime),0f, displacement.z / deltaTime);
+
+        // Store the current position and time for the next update
+        lastPosition = transform.position;
+        lastUpdateTime = Time.time;
+
+        //speed = Mathf.Sqrt(Mathf.Pow(velocity.x, 2f) + Mathf.Pow(velocity.x, 2f));
+
+        speed = velocity.magnitude;
+        Debug.Log(velocity.magnitude + " Magnitude");
+        SpeedText.text = $"Speed: {(int)speed}M/s";
+        Debug.Log($"speed {speed}");
+    }
+
+    // Triggered when the player comes in contact with obstacles or coins.
     private void OnTriggerEnter(Collider ElementCollider)
     {
         if (ElementCollider.gameObject.CompareTag("CoinTag"))  //Coin collected.

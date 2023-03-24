@@ -63,7 +63,7 @@ public class VirtualDPad : OnScreenControl, IPointerDownHandler, IPointerUpHandl
         RectTransformUtility.ScreenPointToLocalPointInRectangle(handle.parent.GetComponentInParent<RectTransform>(), eventData.position, eventData.pressEventCamera, out var position);
         Vector2 delta = position;
         float exhorizontal = delta.x;
-        horizontal = exhorizontal / 1000;
+        horizontal = exhorizontal / 800;
 
         if (direction == VirtualDPadDirection.Horizontal) delta.y = 0;
         else if (direction == VirtualDPadDirection.Vertical) delta.x = 0;
