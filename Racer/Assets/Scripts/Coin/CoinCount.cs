@@ -61,9 +61,7 @@ public class CoinCount : MonoBehaviour
         //speed = Mathf.Sqrt(Mathf.Pow(velocity.x, 2f) + Mathf.Pow(velocity.x, 2f));
 
         speed = velocity.magnitude;
-        Debug.Log(velocity.magnitude + " Magnitude");
         SpeedText.text = $"Speed: {(int)speed}M/s";
-        Debug.Log($"speed {speed}");
     }
 
     // Triggered when the player comes in contact with obstacles or coins.
