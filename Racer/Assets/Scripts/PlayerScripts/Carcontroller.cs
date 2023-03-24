@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class Carcontroller : MonoBehaviour
 {
@@ -11,8 +9,8 @@ public class Carcontroller : MonoBehaviour
     private float verticalInput;
     private float rotationAngle;
 
-    [SerializeField] ButtonPress brakeButton;
-    [SerializeField] Acelarator acelarator;
+    [SerializeField] ButtonPress brakeButton; 
+    [SerializeField] Acelarator acelarator;   
     [Space]
     [SerializeField] private bool isbreaking = false;
     public float maxRotationAngle = 20f;
@@ -36,16 +34,16 @@ public class Carcontroller : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        GetInput();
-        currentBreakFroce = isbreaking ? breakForce : 0f;
+        GetInput();                                                // Getting Input
+        currentBreakFroce = isbreaking ? breakForce : 0f;          // Setting brakeForce
         if (!isbreaking)
         {
-            HandleMotor();
+            HandleMotor();   // if not braking then spin the motor
         }
 
-        ApplyBrake();
-        HandleSteering();
-        UpdateWheels();
+        ApplyBrake();        // apply brake
+        HandleSteering();    // turn steering
+        UpdateWheels();      // change the wheel object to wheel colider position
     }
 
     private void UpdateWheels()
@@ -92,12 +90,6 @@ public class Carcontroller : MonoBehaviour
 
     void GetInput()
     {
-
-        //isbreaking = false;
-        // horizontalInput = Input.GetAxis("Horizontal");
-        //verticalInput = Input.GetAxis("Vertical");
-        //isbreaking = Input.GetKey(KeyCode.Space);
-
         horizontalInput = Dpad.horizontal;
         verticalInput = acelarator.velocity;
         isbreaking = brakeButton.brakeState;

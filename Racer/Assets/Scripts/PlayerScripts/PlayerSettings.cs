@@ -11,14 +11,15 @@ public class PlayerSettings : MonoBehaviour
     private float brake;
     private float speed;
 
-    private void Start()
+    private void Start()   // storing default value
     {
         brake = car.breakForce;
         speed = car.straightSpeed;
       
     }
 
-    public void RefreshValue() {
+    public void RefreshValue()  // setting value to default
+    {
         car.breakForce = brake;
         car.straightSpeed = speed;
         Data[0].text = speed.ToString();
@@ -28,15 +29,15 @@ public class PlayerSettings : MonoBehaviour
 
     public void ChangePower()
     {
-        car.straightSpeed = (int.Parse( Data[0].text));
+        car.straightSpeed = (int.Parse( Data[0].text));  // setting power
     }
 
     public void ChangeBrake()
     {
-        car.breakForce = (int.Parse(Data[1].text));
+        car.breakForce = (int.Parse(Data[1].text));    //setting brake
     }
 
-    public void OpenPanel()
+    public void OpenPanel() // displaying intial values
     {
         Data[0].text = car.straightSpeed.ToString();
         Data[1].text = car.breakForce.ToString();

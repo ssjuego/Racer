@@ -7,16 +7,16 @@ public class MainMenuScript : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Level1.1");
+        SceneManager.LoadScene("Level1.1"); // play game
     }
 
     public void EndGame()
     {
-        Application.Quit();
+        Application.Quit();  // close game
     }
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu"); // open mainmenu
     }
 }

@@ -5,8 +5,6 @@ using TMPro;
 
 public class ScoreKeeper : MonoBehaviour
 {
- 
-
     public TMP_Text scoreText;
 
     void Start()
