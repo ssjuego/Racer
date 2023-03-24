@@ -14,9 +14,10 @@ public class Carcontroller : MonoBehaviour
     [SerializeField] ButtonPress brakeButton;
     [SerializeField] Acelarator acelarator;
     [SerializeField] private bool isbreaking = false;
-    [SerializeField] float maxRotationAngle = 20f;
-    [SerializeField] float straightSpeed = 1000;
-    [SerializeField] float breakForce = 20000;
+    public float maxRotationAngle = 20f;
+    public float straightSpeed = 1000;
+    public float breakForce = 20000;
+    public float SteeringRaft = 1;
     [SerializeField] float currentBreakFroce = 0;
     [SerializeField] VirtualDPad Dpad;
     [Space]
@@ -98,7 +99,7 @@ public class Carcontroller : MonoBehaviour
         //verticalInput = Input.GetAxis("Vertical");
         //isbreaking = Input.GetKey(KeyCode.Space);
 
-        horizontalInput = Dpad.horizontal;
+        horizontalInput = Dpad.horizontal * SteeringRaft;
         verticalInput = acelarator.velocity;
         isbreaking = brakeButton.brakeState;
 

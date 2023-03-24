@@ -43,31 +43,6 @@ public class CoinCount : MonoBehaviour
             SceneManager.LoadScene("EndGame");
         }
 
-        /* if (ElementCollider.gameObject.CompareTag("Stealingwall"))   // obstacles to hinder progress by stealing the coins.
-        {
-            coinCounter = 0;
-            coinText.text = "Coins: " + coinCounter;
-        }using UnityEngine;
-
-public class ScoreManager : MonoBehaviour
-{
-    public static int playerScore;
-
-    void Update()
-    {
-        // Update the player's score as necessary
-        playerScore = CalculateScore();
-    }
-
-    void OnDestroy()
-    {
-        // Save the player's score to PlayerPrefs when the scene is destroyed
-        PlayerPrefs.SetInt("PlayerScore", playerScore);
-        PlayerPrefs.Save();
-    }
-}
-
-       */
-
+       
     }
 }
